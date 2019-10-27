@@ -1,0 +1,38 @@
+<form [formGroup]="addressForm" class="container mt-3" (ngSubmit)="logValue()">
+    <div class="row justify-content-center">
+      <div class="col-6">
+          <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Address</button>
+        <section class="container border mb-4 p-3" formArrayName="addresses" 
+          *ngFor="let address of addressControls; let i = index;">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-12 text-right">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control" formControlName="address" placeholder="St. Thomas Apartment"/>
+                    </div>
+              </div>
+              <div class="col-6">
+                  <div class="form-group">
+                      <label>Street</label>
+                      <input type="text" class="form-control" formControlName="street" placeholder="South Street"/>
+                    </div>
+              </div>
+            </div>
+          </div>
+      
+        </section>
+  
+        <div class="text-right">
+            <input type="submit" class="btn btn-success" value="Submit"/>
+        </div>
+        
+      </div>
+    </div>
+  
+  </form>
